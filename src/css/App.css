@@ -1,0 +1,74 @@
+#header {
+  display: flex;
+  box-sizing: border-box;
+  height: 10vh;
+  width: 100vw;
+
+  background-color: rgba(191, 61, 61, 0.791);
+
+}  
+
+#label-username {
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+#input-username {
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+#label-password {
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+#input-password {
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+#button-signup {
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+h1 {
+    color: blue;
+    display: inline-block;
+}
+
+main {
+    display: flex;
+    flex-direction: row wrap;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+      
+}
+
+#posts-filters-panel {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    order: 1;
+    box-sizing: border-box;
+    height: 89vh;
+    width: 15vw;
+    overflow-y: scroll;
+    background-color: aqua;
+}
+
+#posts-detailed-view {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    order: 2;
+    box-sizing: border-box;
+
+    flex-wrap: wrap;
+    height: 89vh;
+    width: 84vw;
+    background-color: teal;
+}
+
+.posts-filters-card {
+    border: 1px solid black;
+    width: 100%;
+    padding-bottom: 1em;
+}
