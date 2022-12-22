@@ -8,25 +8,7 @@
 
 }  
 
-#label-username {
-    margin: 2vh 1vw 2vh 1vw;
-}
 
-#input-username {
-    margin: 2vh 1vw 2vh 1vw;
-}
-
-#label-password {
-    margin: 2vh 1vw 2vh 1vw;
-}
-
-#input-password {
-    margin: 2vh 1vw 2vh 1vw;
-}
-
-#button-signup {
-    margin: 2vh 1vw 2vh 1vw;
-}
 
 h1 {
     color: blue;
@@ -71,4 +53,78 @@ main {
     border: 1px solid black;
     width: 100%;
     padding-bottom: 1em;
+}
+
+#login-card {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    order: 2;
+    box-sizing: border-box;
+
+    flex-wrap: wrap;
+    height: 90vh;
+    width: 100vw;
+    
+    background-image:url(../imgs/ChappyList.jpeg);
+}
+
+#login-card-backsplash {
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    
+
+
+    width: 30vw;
+    height: 45vh;
+    background-color: teal;
+    
+}
+
+#label-username {
+    margin: 2vh 1vw 2vh 1vw;
+    padding: .5vh .3vw .5vh .3vw;
+    background-color: black;
+    color: antiquewhite;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+#input-username {
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+#label-password {
+    margin: 2vh 1vw 2vh 1vw;
+    padding: .5vh .3vw .5vh .3vw;
+    background-color: black;
+    color: antiquewhite;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+}
+
+#input-password {
+    margin: 2vh 1vw 2vh 1vw;
+}
+
+#button-login {
+    margin: 2vh 1vw 2vh 1vw;
+
+    background-color: blue;
+    color: antiquewhite;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+#button-register {
+    margin: 2vh 1vw 2vh 1vw;
+
+    background-color: green;
+    color: antiquewhite;
+    font-weight: bold;
+    font-size: 1.5em;
+    
 }

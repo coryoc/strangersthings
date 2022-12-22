@@ -3,23 +3,80 @@ import React from 'react';
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/';
 const COHORT_NAME='2209-FTB-ET-WEB-PT';
 
+
 export const getPosts = async () => {
     try {
         const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/posts`,);
         const results = await response.json();	
         const posts = results.data.posts;
         return posts;
-    //    setPosts(data);
-    //     console.log(setPosts);
 
-
-    } catch (e) {
+    } catch (error) {
         console.log("An error occurred when trying to retrieve posts.");
-        console.error(e);
+        console.error(error);
 
-        throw e;
+        throw error;
     }
 };
 
-export default getPosts;
+export const logIn = async (username, password) => {
+    try {
+            const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users/login`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                    }, 
+                body: JSON.stringify({
+                    user: {
+                        username: username,
+                        password: password,
+                        }
+                    })
+                });
+            const results = await response.json();
+            
+            
+            console.log(results);
+            return results;
+
+        } catch (error) {
+        console.log("An error occurred when trying sign up for a new account.");
+        console.error(error);
+
+        throw error;
+    }
+};
+
+
+const signUp = async (username, password) => {
+    try {
+            const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users/register`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                    }, 
+                body: JSON.stringify({
+                    user: {
+                        username,
+                        password,
+                        }
+                    })
+                });
+            const results = await response.json();
+            
+            
+            console.log(results);
+            return results;
+
+        } catch (error) {
+        console.log("An error occurred when trying sign up for a new account.");
+        console.error(error);
+
+        throw error;
+    }
+};
+
+export default logIn;
+
+
 
