@@ -19,7 +19,7 @@ export const getPosts = async () => {
     }
 };
 
-export const logIn = async (username, password) => {
+export const logIn = async (username, password, token, setToken) => {
     try {
             const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users/login`, {
                 method: "POST",
@@ -34,10 +34,12 @@ export const logIn = async (username, password) => {
                     })
                 });
             const results = await response.json();
+            const newToken = results.data.token;
             
-            
-            console.log(results);
-            return results;
+                token=newToken;
+                console.log(token);
+
+            return newToken;
 
         } catch (error) {
         console.log("An error occurred when trying sign up for a new account.");

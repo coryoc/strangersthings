@@ -1,4 +1,4 @@
-import { useHistory, Link } from 'react-router-dom';
+import { useEffect } from "react";
 import PostCards from "./PostCards";
 import signUp from "./fetches";
 import logIn from "./fetches";
@@ -20,19 +20,22 @@ const Login= ({
     posts,
     setPosts,
     token,
+    setToken,
     postId,
     setPostId,
     onePost,
     setOnePost
   }) => 
-  
+   
 
   { 
+
     return (
         <main>
            <section id="login-card">
             <h3>Time to Login</h3>
-            <div id="login-card-backsplash">
+            <div id="login-card-backsplash"
+            >
                 <div>
                     <label id="label-username">Username</label>
                     <input id="input-username"

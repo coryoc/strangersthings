@@ -4,6 +4,7 @@ import PostCards from "./components/PostCards";
 import SinglePost from "./components/SinglePost";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import Profile from "./components/Profile";
 
 import React from "react";
 import { useEffect, useState, Link } from "react";
@@ -44,8 +45,8 @@ function App() {
     <Routes>
         <Route path="/SinglePost/:postId" element={<SinglePost posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
         <Route exact path="/" element={<Home posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
-        <Route path="/Login" element={<Login posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>}/>
-
+        <Route path="/login" element={<Login posts={posts} setPosts={setPosts} token={token} setToken={setToken} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>}/>
+        <Route path="profile" element={<Profile />} />
       </Routes>
   
   </div>
