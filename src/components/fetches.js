@@ -50,7 +50,7 @@ export const logIn = async (username, password, token, setToken) => {
 };
 
 
-const signUp = async (username, password) => {
+export const signUp = async (username, password) => {
     try {
             const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users/register`, {
                 method: "POST",

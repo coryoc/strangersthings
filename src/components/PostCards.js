@@ -33,7 +33,7 @@ const PostCards = ({
                     posts.map(
                         (post) => {
                             return (                
-                                <div id={post._id} className="posts-filters-card">
+                                <div id={post._id} key={post._id} className="posts-filters-card">
                                     <h3>
                                         {post.title}
                                     </h3>

@@ -7,14 +7,14 @@ import Home from "./components/Home";
 import Profile from "./components/Profile";
 
 import React from "react";
-import { useEffect, useState, Link } from "react";
-import { Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Routes, Route, Link } from 'react-router-dom';
 
 import './css/App.css';
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/';
 const COHORT_NAME='2209-FTB-ET-WEB-PT';
-const TOKEN_STORAGE_KEY="";
+export const TOKEN_STORAGE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FiNjJmYzQzY2ZhNjAwMTdiNjdjNmUiLCJ1c2VybmFtZSI6Im1vYmFtYmEiLCJpYXQiOjE2NzIyNDUzNTV9.kyMrP6hM37Y0rbJ2Eep0j7q894_pvMP_mMIY724IIQw";
 
 function App() {
 
@@ -24,15 +24,8 @@ function App() {
   const [token, setToken] = useState('');
   const [posts, setPosts] = useState([]);
   const [postId, setPostId] = useState('');
-  const [onePost, setOnePost] = useState();
+  const [onePost, setOnePost] = useState('');
 
-
-  useEffect(() => {
-    const storageToken = localStorage.getItem(TOKEN_STORAGE_KEY);
-
-        setToken(storageToken);
-
-      }, []);
     
   
   return (
@@ -40,11 +33,16 @@ function App() {
 
     <header id="header">
       <h1>ChappyList</h1>
+      <Link to="/" className="header-links">Home</Link>
+      <Link to="/posts" className="header-links">Posts</Link>
+      <Link to="/login" className="header-links">Login</Link>
+      <Link to="/profile" className="header-links">Profile</Link>
     </header>
 
     <Routes>
         <Route path="/SinglePost/:postId" element={<SinglePost posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
         <Route exact path="/" element={<Home posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
+        <Route exact path="/posts" element={<Home posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
         <Route path="/login" element={<Login posts={posts} setPosts={setPosts} token={token} setToken={setToken} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>}/>
         <Route path="profile" element={<Profile />} />
       </Routes>

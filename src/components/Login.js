@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import PostCards from "./PostCards";
-import signUp from "./fetches";
-import logIn from "./fetches";
+import logIn from "./fetches/logIn";
+import signUp from "./fetches/signUp";
 import React from 'react';
 
-const setTargetValue = (callback) => {
-    return (event) => {
-     event.preventDefault();
-     callback(event.target.value);
+const recordChange = (change) => {
+    return (e) => {
+        e.preventDefault();
+        change(e.target.value);
+    };
 
-       };
-   };
+};
 
 const Login= ({
     username,
@@ -40,27 +40,25 @@ const Login= ({
                     <label id="label-username">Username</label>
                     <input id="input-username"
                     value={username} 
-                    onChange={setTargetValue(setUsername)}/>
+                    onChange={recordChange(setUsername)}/>
                 </div>
 
                 <div>
 
                     <label id="label-password">Password</label>
                     <input id="input-password"
-                    value={password} 
-                    onChange={setTargetValue(setPassword)                    
-                    }
-                    type={'password'}
-                    />
+                    value={password}
+                    type={'password'} 
+                    onChange={recordChange(setPassword)}/>
                 </div>
 
                 <p>Existing User?</p>
 
-            <button id="button-login" onClick={logIn(username, password)}>Login</button>
+            <button id="button-login" onClick={() => logIn(username, password, token, setToken)}>Login</button>
 
                 <p>New User?</p>
 
-            <button id="button-register">Create new account</button>
+            <button id="button-register" onClick={() => signUp(username, password, token, setToken)}>Create new account</button>
             </div>
         </section>
         </main>
