@@ -31,7 +31,7 @@ main {
     order: 1;
     box-sizing: border-box;
     height: 89vh;
-    width: 15vw;
+    width: 20vw;
     overflow-y: scroll;
     background-color: aqua;
 }
@@ -45,7 +45,7 @@ main {
 
     flex-wrap: wrap;
     height: 89vh;
-    width: 84vw;
+    width: 80vw;
     background-color: teal;
 }
 
@@ -135,9 +135,8 @@ main {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    order: 2;
     box-sizing: border-box;
-    border: 1px solid black;
+    width: 20vw;
 }
 
 .create-new-post-title {
@@ -148,3 +147,41 @@ main {
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     font-weight: bold;
 }
+
+#my-existing-posts {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    justify-content: start;
+    box-sizing: border-box;
+    width: 40vw;
+    height: 85vh;
+    overflow-y: scroll;
+}
+
+.my-posts-filters-card {
+    display: flex;
+    flex-flow: column wrap; 
+    align-items: center;
+    border: 1px solid black;
+    height: 15vh;
+    width: 38vw;
+    max-width: 38vw;
+    padding-bottom: 1em;
+    overflow-x: scroll;
+
+}
+
+#profile-posts-detailed-view {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    order: 2;
+    box-sizing: border-box;
+
+    flex-wrap: wrap;
+    height: 89vh;
+    width: 40vw;
+    background-color: teal;
+}
+

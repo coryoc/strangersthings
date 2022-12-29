@@ -14,7 +14,7 @@ import './css/App.css';
 
 const BASE_URL = 'https://strangers-things.herokuapp.com/api/';
 const COHORT_NAME='2209-FTB-ET-WEB-PT';
-export const TOKEN_STORAGE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FiNjJmYzQzY2ZhNjAwMTdiNjdjNmUiLCJ1c2VybmFtZSI6Im1vYmFtYmEiLCJpYXQiOjE2NzIyNzkxOTB9.nOUhSTPPTu5FAX_c1WBUC2PtF34r3lLQ2Rf0CnT3_HQ";
+export const TOKEN_STORAGE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FiNjJmYzQzY2ZhNjAwMTdiNjdjNmUiLCJ1c2VybmFtZSI6Im1vYmFtYmEiLCJpYXQiOjE2NzIzMjgwODN9.rx6e_hC3JazFaKMYTuPfcrx_BXFCvFjJvAlYC5DTlGQ";
 
 function App() {
 
@@ -43,10 +43,10 @@ function App() {
 
     <Routes>
         <Route path="/SinglePost/:postId" element={<SinglePost posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
-        <Route exact path="/" element={<Home posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
-        <Route exact path="/posts" element={<Home posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
-        <Route path="/login" element={<Login posts={posts} setPosts={setPosts} token={token} setToken={setToken} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} username={username} setUsername={setUsername} password={password} setPassword={setPassword}/>}/>
-        <Route path="profile" element={<Profile meProfile={meProfile} setMeProfile={setMeProfile}/>} />
+        <Route exact path="/" element={<Home posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} meProfile={meProfile} setMeProfile={setMeProfile} />}/>
+        <Route exact path="/posts" element={<Home posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} />}/>
+        <Route path="/login" element={<Login posts={posts} setPosts={setPosts} token={token} setToken={setToken} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} username={username} setUsername={setUsername} password={password} setPassword={setPassword} meProfile={meProfile} setMeProfile={setMeProfile}/>}/>
+        <Route path="profile" element={<Profile meProfile={meProfile} setMeProfile={setMeProfile} setPosts={setPosts} setPostId={setPostId} setOnePost={setOnePost} onePost={onePost}/>} />
       </Routes>
   
   </div>

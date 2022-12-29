@@ -1,13 +1,19 @@
+
 import { useEffect, useState } from "react";
 
 import getMe from "./fetches/getMe";
 import createPost from "./fetches/createPost";
-
+import SinglePost from "./SinglePost";
+import deletePost from "./fetches/deletePost";
+import PostMsgs from "./PostMsgs";
 
 
 const Profile = ({
     meProfile,
     setMeProfile,
+    setPostId,
+    onePost,
+    setOnePost
 }) => {
 
 
@@ -16,7 +22,7 @@ const Profile = ({
     const [price, setPrice] = useState('');
     const [location, setLocation] = useState('');
     const [willDeliver, setWillDeliver] = useState();
-
+    const [replyMsg, setReplyMsg] = useState('');
 
     const recordChange = (change) => {
         return (e) => {
@@ -49,39 +55,9 @@ const Profile = ({
   
 
              <div>
-              "   meProfile.username"
+              Welcome{meProfile.username}
              </div>
   
-             <div>
-                messages
-             </div>
-  
-             {/* <div>
-                {
-                    meProfile.posts.map(
-                        (post) => {
-                            return (                
-                                <div id={post._id} key={post._id} className="posts-filters-card">
-                                    <h3>
-                                        {post.title}
-                                    </h3>
-                                    <div>
-                                        {post.location}
-                                    </div>
-                                    <div>
-                                        {post.price}
-                                    </div>
-                                    <div>
-                                        {post.createdAt}
-                                    </div>
-                                    
-                                </div>
-                            )
-                        }
-                    )
-                }
-            </div> */}
-            
              <div id="create-new-post">
                 create new post
 
@@ -127,6 +103,57 @@ const Profile = ({
   
          </div>
      </section>
+
+     <section>
+     <div id="my-existing-posts">
+        My Posts
+                {
+                    meProfile.posts.map(
+                        (post) => {
+                            return (                
+                                <div id={post._id} key={post._id} className="my-posts-filters-card">
+                                    <h3>
+                                        {post.title}
+                                    </h3>
+                                    <div>
+                                        {post.location}
+                                    </div>
+                                    <div>
+                                        {post.price}
+                                    </div>
+                                    <div>
+                                        {post.createdAt}
+                                    </div>
+                                    <p>Active? {post.active.toString()}</p>
+
+                                    <button onClick={(e) => {
+                                        setPostId(post._id);
+                                        setOnePost(post);
+                                        console.log(post);
+                                        }}>View</button>
+                                    <button>Edit</button>
+                                    <button
+                                    onClick={(e) => {
+                                        setPostId(post._id);
+                                        deletePost(post);
+                                        }}>Delete</button>
+                                    
+                                </div>
+                            )
+                        }
+                    )
+                }
+            </div>
+     </section>
+
+     <section id="profile-posts-detailed-view">
+    <SinglePost onePost={onePost} replyMsg={replyMsg}/>
+    <PostMsgs onePost={onePost} replyMsg={replyMsg} recordChange={recordChange} setReplyMsg={setReplyMsg}/>
+
+
+   
+  </section>
+
      </main>
 
         );

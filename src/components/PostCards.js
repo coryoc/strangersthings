@@ -46,11 +46,12 @@ const PostCards = ({
                                     <div>
                                         {post.createdAt}
                                     </div>
+                                    <p>Active? {post.active.toString()}</p>
+
                                     <button onClick={(e) => {
                                         setPostId(post._id);
                                         setOnePost(post);
                                         console.log(post);
-                                        // history.push(`/posts/${postId}`);
                                         }}>View Post</button>
                                     
                                 </div>

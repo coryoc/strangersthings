@@ -1,6 +1,10 @@
+
+
 import getPosts from "./fetches";
 import PostCards from "./PostCards";
 import SinglePost from "./SinglePost";
+
+
 
 const Home = ({
   posts,
@@ -9,8 +13,14 @@ const Home = ({
   postId,
   setPostId,
   onePost,
-  setOnePost
+  setOnePost,
+  meProfile, 
+  setMeProfile
 }) => {
+
+
+
+
   return (
       <main>
   <section id="posts-filters-panel">
@@ -20,7 +30,7 @@ const Home = ({
 
 
   <section id="posts-detailed-view">
-    <SinglePost posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>
+    <SinglePost onePost={onePost} />
   </section>
   </main>
 

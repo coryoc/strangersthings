@@ -4,6 +4,8 @@ import logIn from "./fetches/logIn";
 import signUp from "./fetches/signUp";
 import React from 'react';
 
+import getMe from "./fetches/getMe";
+
 const recordChange = (change) => {
     return (e) => {
         e.preventDefault();
@@ -24,11 +26,29 @@ const Login= ({
     postId,
     setPostId,
     onePost,
-    setOnePost
+    setOnePost,
+    meProfile, 
+    setMeProfile
   }) => 
    
 
+  
+
   { 
+
+    useEffect(() => {
+
+        getMe(meProfile, setMeProfile)
+        .then((freshProfile) => {
+            setMeProfile(freshProfile);
+        })
+        .then(() => {
+           console.log(meProfile);
+        })
+        .catch((e) => {
+          console.error('Error retrieving user profile info on initial page load.');
+          console.error(e);
+        });    }, []); 
 
     return (
         <main>
