@@ -21,7 +21,11 @@ export const createPost = async (title, description, price, location, willDelive
             const results = await response.json();
             
             console.log(results);
- 
+                
+            if (results.error) 
+            {alert(results.error.message);}
+
+            
             return results;
 
         } catch (error) {

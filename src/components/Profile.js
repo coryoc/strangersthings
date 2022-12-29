@@ -2,18 +2,12 @@ import { useEffect, useState } from "react";
 
 import getMe from "./fetches/getMe";
 import createPost from "./fetches/createPost";
-import { toHaveDescription } from "@testing-library/jest-dom/dist/matchers";
 
 
 
 const Profile = ({
-    posts,
-    setPosts,
-    token,
-    postId,
-    setPostId,
-    onePost,
-    setOnePost
+    meProfile,
+    setMeProfile,
 }) => {
 
 
@@ -32,26 +26,61 @@ const Profile = ({
     
     };
 
+    useEffect(() => {
+        getMe(meProfile, setMeProfile)
+        .then((freshProfile) => {
+            setMeProfile(freshProfile);
+        })
+        .then(() => {
+           console.log(meProfile);
+        })
+        .catch((e) => {
+          console.error('Error retrieving user profile info on initial page load.');
+          console.error(e);
+        });
+    }, []);
+
+
     return (
         <main>
         <section id="profile-card">
          <h3>Time to Login</h3>
          <div id="profile-card-backsplash">
   
-            <div>
-                <button onClick={() => getMe()}>Get Profile Info</button>
-            </div>
+
              <div>
-                 username
+              "   meProfile.username"
              </div>
   
              <div>
                 messages
              </div>
   
-             <div>
-                View existing posts
-             </div>
+             {/* <div>
+                {
+                    meProfile.posts.map(
+                        (post) => {
+                            return (                
+                                <div id={post._id} key={post._id} className="posts-filters-card">
+                                    <h3>
+                                        {post.title}
+                                    </h3>
+                                    <div>
+                                        {post.location}
+                                    </div>
+                                    <div>
+                                        {post.price}
+                                    </div>
+                                    <div>
+                                        {post.createdAt}
+                                    </div>
+                                    
+                                </div>
+                            )
+                        }
+                    )
+                }
+            </div> */}
             
              <div id="create-new-post">
                 create new post

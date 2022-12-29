@@ -1,6 +1,6 @@
 import { TOKEN_STORAGE_KEY } from "../../App";
 
-export const getMe = async () => {
+export const getMe = async (meProfile, setMeProfile) => {
 
     try {
             const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users/me`, {
@@ -12,9 +12,15 @@ export const getMe = async () => {
                 });
             const results = await response.json();
             
-            console.log(results);
- 
-            return results;
+            const freshProfile = results.data;
+            
+            
+            console.log(freshProfile);
+
+            if (results.error) 
+            {alert(results.error.message);}
+
+            return freshProfile;
 
         } catch (error) {
         console.log("An error occurred when trying to retrieve profile information.");
