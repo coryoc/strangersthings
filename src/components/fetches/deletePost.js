@@ -1,6 +1,6 @@
 import { TOKEN_STORAGE_KEY } from "../../App";
 
-export const deletePost = async (post, title, description, price, location, willDeliver) => {
+export const deletePost = async (post, title, description, price, location, willDeliver, token) => {
 
     console.log(post._id)
     try {

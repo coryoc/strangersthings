@@ -3,7 +3,7 @@ import PostCards from "./PostCards";
 import logIn from "./fetches/logIn";
 import signUp from "./fetches/signUp";
 import React from 'react';
-
+import { TOKEN_STORAGE_KEY } from "../App";
 import getMe from "./fetches/getMe";
 
 const recordChange = (change) => {
@@ -38,7 +38,7 @@ const Login= ({
 
     useEffect(() => {
 
-        getMe(meProfile, setMeProfile)
+        getMe(meProfile, setMeProfile, token)
         .then((freshProfile) => {
             setMeProfile(freshProfile);
         })
@@ -74,11 +74,23 @@ const Login= ({
 
                 <p>Existing User?</p>
 
-            <button id="button-login" onClick={() => logIn(username, password, token, setToken)}>Login</button>
+            <button id="button-login" onClick={() => {
+                logIn(username, password, token, setToken)
+                    .then((newToken) => {
+                        setToken(newToken);
+                        }
+                    )
+                    .then(() => {
+                        console.log(token);
+                        }
+                    )
+               }
+                }>Login</button>
 
                 <p>New User?</p>
 
             <button id="button-register" onClick={() => signUp(username, password, token, setToken)}>Create new account</button>
+
             </div>
         </section>
         </main>

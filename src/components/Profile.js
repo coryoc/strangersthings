@@ -3,14 +3,17 @@ import { useEffect, useState } from "react";
 
 import getMe from "./fetches/getMe";
 import createPost from "./fetches/createPost";
+import editPost from "./fetches/editPost";
 import SinglePost from "./SinglePost";
 import deletePost from "./fetches/deletePost";
 import PostMsgs from "./PostMsgs";
 
 
 const Profile = ({
+    token,
     meProfile,
     setMeProfile,
+    postID,
     setPostId,
     onePost,
     setOnePost
@@ -22,7 +25,6 @@ const Profile = ({
     const [price, setPrice] = useState('');
     const [location, setLocation] = useState('');
     const [willDeliver, setWillDeliver] = useState();
-    const [replyMsg, setReplyMsg] = useState('');
 
     const recordChange = (change) => {
         return (e) => {
@@ -33,18 +35,24 @@ const Profile = ({
     };
 
     useEffect(() => {
-        getMe(meProfile, setMeProfile)
+        getMe(meProfile, setMeProfile, token)
         .then((freshProfile) => {
             setMeProfile(freshProfile);
         })
         .then(() => {
            console.log(meProfile);
         })
+
+        .then(() => {
+            setOnePost('');
+         })
+        
         .catch((e) => {
           console.error('Error retrieving user profile info on initial page load.');
           console.error(e);
         });
     }, []);
+
 
 
     return (
@@ -98,7 +106,10 @@ const Profile = ({
                     
                 </select>
 
-                <button onClick={() => createPost(title, description, price, location)}>Create New Post</button>
+                <button onClick={() => createPost(title, description, price, location, token)}>Create New Post</button>
+
+
+
              </div>
   
          </div>
@@ -127,11 +138,14 @@ const Profile = ({
                                     <p>Active? {post.active.toString()}</p>
 
                                     <button onClick={(e) => {
-                                        setPostId(post._id);
                                         setOnePost(post);
                                         console.log(post);
                                         }}>View</button>
-                                    <button>Edit</button>
+                                    <button onClick={(e) => {
+                                        setOnePost(post);
+                                        editPost(title, description, price, location, post)
+                                    }}
+                                    >Edit</button>
                                     <button
                                     onClick={(e) => {
                                         setPostId(post._id);
@@ -147,8 +161,8 @@ const Profile = ({
      </section>
 
      <section id="profile-posts-detailed-view">
-    <SinglePost onePost={onePost} replyMsg={replyMsg}/>
-    <PostMsgs onePost={onePost} replyMsg={replyMsg} recordChange={recordChange} setReplyMsg={setReplyMsg}/>
+    <SinglePost onePost={onePost} />
+    <PostMsgs onePost={onePost}  recordChange={recordChange}/>
 
 
    

@@ -1,8 +1,5 @@
-import { useHistory } from 'react-router-dom';
-
 const PostMsgs= ({
     onePost,
-    recordChange
   }) => 
   
   
@@ -22,8 +19,6 @@ const PostMsgs= ({
                                     <p>
                                         {msg.content}
                                     </p>
-                                    <button
-                                    >Reply</button>
                                 </div>
                             )
                         }

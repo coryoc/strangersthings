@@ -16,12 +16,11 @@ export const logIn = async (username, password, token, setToken) => {
             const results = await response.json();
             
             if (results.error) 
-                {alert(results.error.message);}
+                {alert(results.error.message);
+                    return results;}
                 let newToken = results.data.token;
-            console.log(newToken);
-            setToken(newToken);
  
-            return results;
+            return newToken;
 
         } catch (error) {
         console.log("An error occurred when trying to login with an existing account.");

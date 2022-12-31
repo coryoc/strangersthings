@@ -1,4 +1,4 @@
-
+import { useEffect } from "react";
 
 import getPosts from "./fetches";
 import PostCards from "./PostCards";
@@ -15,22 +15,26 @@ const Home = ({
   onePost,
   setOnePost,
   meProfile, 
-  setMeProfile
+  setMeProfile,
+  replyMsg,
+  setReplyMsg
 }) => {
 
-
+  useEffect(() => {
+    setOnePost('');
+}, []);
 
 
   return (
       <main>
   <section id="posts-filters-panel">
-    <PostCards posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>
+    <PostCards posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} replyMsg={replyMsg} setReplyMsg={setReplyMsg}/>
   </section>
   
 
 
   <section id="posts-detailed-view">
-    <SinglePost onePost={onePost} />
+    <SinglePost onePost={onePost} replyMsg={replyMsg} setReplyMsg={setReplyMsg}/>
   </section>
   </main>
 

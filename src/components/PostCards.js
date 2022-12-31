@@ -10,9 +10,12 @@ const PostCards = ({
     postId,
     setPostId,
     onePost,
-    setOnePost
+    setOnePost,
+
   }) => 
 
+
+  
   
   {
     useEffect(() => {
@@ -26,6 +29,10 @@ const PostCards = ({
           console.error(e);
         });
     }, []);
+
+
+
+
 
         return (
             <div>
@@ -53,6 +60,7 @@ const PostCards = ({
                                         setOnePost(post);
                                         console.log(post);
                                         }}>View Post</button>
+                                    
                                     
                                 </div>
                             )
