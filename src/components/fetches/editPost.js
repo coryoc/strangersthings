@@ -1,13 +1,13 @@
+import { TOKEN_STORAGE_KEY } from "../../App";
 
-
-export const editPost = async (title, description, price, location, willDeliver, token, post) => {
+export const editPost = async (title, description, price, location, willDeliver, token, onePost) => {
 
     try {
-            const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/posts/${post._id}`, {
+            const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/posts/${onePost._id}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${TOKEN_STORAGE_KEY}`
                     },
                 body: JSON.stringify({
                     post: {

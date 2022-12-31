@@ -1,5 +1,5 @@
 
-import getPosts from "./components/fetches";
+import getPosts from "./components/fetches/getPosts";
 import PostCards from "./components/PostCards";
 import SinglePost from "./components/SinglePost";
 import Login from "./components/Login";

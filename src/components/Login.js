@@ -3,7 +3,6 @@ import PostCards from "./PostCards";
 import logIn from "./fetches/logIn";
 import signUp from "./fetches/signUp";
 import React from 'react';
-import { TOKEN_STORAGE_KEY } from "../App";
 import getMe from "./fetches/getMe";
 
 const recordChange = (change) => {

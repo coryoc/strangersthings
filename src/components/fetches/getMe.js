@@ -1,5 +1,5 @@
 
-
+import { TOKEN_STORAGE_KEY } from "../../App";
 export const getMe = async (meProfile, setMeProfile, token) => {
 
     try {
@@ -7,7 +7,7 @@ export const getMe = async (meProfile, setMeProfile, token) => {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2FiNjJmYzQzY2ZhNjAwMTdiNjdjNmUiLCJ1c2VybmFtZSI6Im1vYmFtYmEiLCJpYXQiOjE2NzIzNDUwNTd9.gmC3Uwic-wPfcs5u95G6mxeltGSugooCYrfZ8ac0Cy0`
+                    'Authorization': `Bearer ${ TOKEN_STORAGE_KEY }`
                     },
                 });
             const results = await response.json();

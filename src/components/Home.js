@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import getPosts from "./fetches";
+import getPosts from "./fetches/getPosts";
 import PostCards from "./PostCards";
 import SinglePost from "./SinglePost";
 
@@ -25,6 +25,8 @@ const Home = ({
 }, []);
 
 
+
+
   return (
       <main>
   <section id="posts-filters-panel">
@@ -34,7 +36,7 @@ const Home = ({
 
 
   <section id="posts-detailed-view">
-    <SinglePost onePost={onePost} replyMsg={replyMsg} setReplyMsg={setReplyMsg}/>
+    <SinglePost onePost={onePost} replyMsg={replyMsg} setReplyMsg={setReplyMsg} meProfile={meProfile}/>
   </section>
   </main>
 

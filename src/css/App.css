@@ -150,13 +150,12 @@ main {
 
 #my-existing-posts {
     display: flex;
-    flex-flow: column wrap;
-    align-items: flex-start;
+    flex-flow: column;
     justify-content: start;
     box-sizing: border-box;
     width: 40vw;
     height: 85vh;
-    overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 .my-posts-filters-card {

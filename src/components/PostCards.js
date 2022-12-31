@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { getPosts } from "./fetches";
+import { getPosts } from "./fetches/getPosts";
 
 
 const PostCards = ({

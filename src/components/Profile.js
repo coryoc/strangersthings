@@ -51,7 +51,8 @@ const Profile = ({
           console.error('Error retrieving user profile info on initial page load.');
           console.error(e);
         });
-    }, []);
+    }, [token]);
+
 
 
 
@@ -143,7 +144,8 @@ const Profile = ({
                                         }}>View</button>
                                     <button onClick={(e) => {
                                         setOnePost(post);
-                                        editPost(title, description, price, location, post)
+                                        console.log(onePost);
+                                        editPost(title, description, price, location, onePost)
                                     }}
                                     >Edit</button>
                                     <button
