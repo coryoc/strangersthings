@@ -4,6 +4,9 @@ import logIn from "./fetches/logIn";
 import signUp from "./fetches/signUp";
 import React from 'react';
 import getMe from "./fetches/getMe";
+import { TOKEN_STORAGE_KEY } from "../App";
+
+
 
 const recordChange = (change) => {
     return (e) => {
@@ -47,7 +50,7 @@ const Login= ({
         .catch((e) => {
           console.error('Error retrieving user profile info on initial page load.');
           console.error(e);
-        });    }, []); 
+        });    }, [TOKEN_STORAGE_KEY]); 
 
     return (
         <main>
@@ -79,16 +82,20 @@ const Login= ({
                         setToken(newToken);
                         }
                     )
-                    .then(() => {
-                        console.log(token);
-                        }
-                    )
-               }
-                }>Login</button>
+
+
+                    
+                
+            }
+        }>Login</button>
 
                 <p>New User?</p>
 
-            <button id="button-register" onClick={() => signUp(username, password, token, setToken)}>Create new account</button>
+            <button id="button-register" onClick={() => signUp(username, password, token, setToken)
+            .then((newToken) => {
+                setToken(newToken);
+                }
+            )}>Create new account</button>
 
             </div>
         </section>

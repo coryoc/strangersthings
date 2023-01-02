@@ -28,42 +28,53 @@ const SinglePost= ({
     )
   }
   
-  else if (onePost && TOKEN_STORAGE_KEY.length > 5 && onePost.author.username !== meProfile.username) {
+  else if (onePost && TOKEN_STORAGE_KEY.length > 5) {
     return (
       <div>
-        <div>
+        <div id="single-post-card">
             <h3>{onePost.title}</h3>
-            <h4>Cost: ${onePost.price}</h4>
-            <h4>Location: {onePost.location}</h4>
-            <h4>Author: {onePost.author.username}</h4>
-            <p>{onePost.description}</p>
+            <h4>Cost:</h4>
+            <span>{onePost.price}</span>
+            <h4>Location:</h4>
+            <span>{onePost.location}</span>
+            <h4>Author:</h4>
+            <span>{onePost.author.username}</span>
+            <h4>Description:</h4>
+            <span>{onePost.description}</span>
         </div>
 
-        <label className="create-reply-msg">Reply</label>
-                                                    <input
-                                                        type="text"
-                                                        value={replyMsg}
-                                                        onChange={recordChange(setReplyMsg)}
-                                                    
-                                                    ></input>
-                                    <button onClick={() => {
-                                        msgAuthor(onePost, replyMsg, token)
-                                    }}>
-                                        Send Message</button>
-
+        <div className="create-reply-msg">
+        <label id="label-reply">Reply</label>
+                        <input
+                            id="input-reply"
+                            type="text"
+                            value={replyMsg}
+                            onChange={recordChange(setReplyMsg)}
+                        
+                        ></input>
+        <button onClick={() => {
+            msgAuthor(onePost, replyMsg, token)
+        }}>
+            Send Message</button>
+        </div>                              
       </div>
         )
   } 
   
   else if (onePost) {
     return (
-      <div>
+     
         <div>
+        <div id="single-post-card">
             <h3>{onePost.title}</h3>
-            <h4>Cost: ${onePost.price}</h4>
-            <h4>Location: {onePost.location}</h4>
-            <h4>Author: {onePost.author.username}</h4>
-            <p>{onePost.description}</p>
+            <h4>Cost:</h4>
+            <span>{onePost.price}</span>
+            <h4>Location:</h4>
+            <span>{onePost.location}</span>
+            <h4>Author:</h4>
+            <span>{onePost.author.username}</span>
+            <h4>Description:</h4>
+            <span>{onePost.description}</span>
         </div>
       </div>
         )

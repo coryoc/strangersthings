@@ -51,7 +51,7 @@ const Profile = ({
           console.error('Error retrieving user profile info on initial page load.');
           console.error(e);
         });
-    }, [token]);
+    }, []);
 
 
 

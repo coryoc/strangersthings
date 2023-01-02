@@ -17,6 +17,7 @@ export const signUp = async (username, password) => {
             if (results.error) 
             {alert(results.error.message);}
             
+            alert(`Congrats on signing up to use Chappylist ${username} ! Please sign in to continue.`)
             return results;
 
         } catch (error) {

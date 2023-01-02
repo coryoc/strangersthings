@@ -12,8 +12,6 @@ import { Routes, Route, Link } from 'react-router-dom';
 
 import './css/App.css';
 
-const BASE_URL = 'https://strangers-things.herokuapp.com/api/';
-const COHORT_NAME='2209-FTB-ET-WEB-PT';
 export let TOKEN_STORAGE_KEY="";
 
 function App() {
@@ -35,7 +33,7 @@ function App() {
   <div className="App">
 
     <header id="header">
-      <h1>ChappyList</h1>
+      <img href="./imgs/ChappyScript.png" alt="Chappylist" />
       <Link to="/" className="header-links">Home</Link>
       <Link to="/posts" className="header-links">Posts</Link>
       <Link to="/login" className="header-links">Login</Link>
@@ -46,7 +44,7 @@ function App() {
         <Route path="/SinglePost/:postId" element={<SinglePost posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost}/>}/>
         <Route exact path="/" element={<Home posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} meProfile={meProfile} setMeProfile={setMeProfile} />}/>
         <Route exact path="/posts" element={<Home replyMsg={replyMsg} setReplyMsg={setReplyMsg} posts={posts} setPosts={setPosts} token={token} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} />}/>
-        <Route path="/login" element={<Login posts={posts} setPosts={setPosts} token={token} setToken={setToken} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} username={username} setUsername={setUsername} password={password} setPassword={setPassword} meProfile={meProfile} setMeProfile={setMeProfile}/>}/>
+        <Route path="/login" element={<Login TOKEN_STORAGE_KEY={TOKEN_STORAGE_KEY} posts={posts} setPosts={setPosts} token={token} setToken={setToken} postId={postId} setPostId={setPostId} onePost={onePost} setOnePost={setOnePost} username={username} setUsername={setUsername} password={password} setPassword={setPassword} meProfile={meProfile} setMeProfile={setMeProfile}/>}/>
         <Route path="profile" element={<Profile token={token} meProfile={meProfile} setMeProfile={setMeProfile} setPosts={setPosts} setPostId={setPostId} setOnePost={setOnePost} onePost={onePost}/>} />
       </Routes>
   
