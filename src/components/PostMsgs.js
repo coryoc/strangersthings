@@ -14,9 +14,9 @@ const PostMsgs= ({
                     onePost.messages.map(
                         (msg) => {
                             return (                
-                                <div id={msg._id} key={msg._id}>
-                                    <h3>From {msg.fromUser.username}</h3>
-                                    <p>
+                                <div id={msg._id} key={msg._id} className="msg-cards">
+                                    <h4 className="msg-author">Message from: {msg.fromUser.username}</h4>
+                                    <p className="msg-content">
                                         {msg.content}
                                     </p>
                                 </div>

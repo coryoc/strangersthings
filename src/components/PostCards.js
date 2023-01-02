@@ -45,17 +45,20 @@ const PostCards = ({
                                         {post.title}
                                     </h3>
                                     <div>
-                                        {post.location}
+                                        <h5 className="posts-cards-labels">Location: </h5>{post.location}
+                                       
                                     </div>
                                     <div>
-                                        {post.price}
+                                    <h5 className="posts-cards-labels">Price: </h5>{post.price}
                                     </div>
                                     <div>
-                                        {post.createdAt}
+                                    <h5 className="posts-cards-labels">Created on: </h5>{post.createdAt.slice(0, 10)}
                                     </div>
-                                    <p>Active? {post.active.toString()}</p>
+                                    <div>
+                                    <h5 className="posts-cards-labels">Still Available? </h5>{post.active.toString()}
+                                    </div>
 
-                                    <button onClick={(e) => {
+                                    <button id="post-cards-button" onClick={(e) => {
                                         setPostId(post._id);
                                         setOnePost(post);
                                         console.log(post);

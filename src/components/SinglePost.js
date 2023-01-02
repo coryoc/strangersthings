@@ -1,6 +1,7 @@
 import { useState } from "react";
 import msgAuthor from "./fetches/msgAuthor";
 
+
 import { TOKEN_STORAGE_KEY } from "../App"; 
 const SinglePost= ({
     onePost,
@@ -24,11 +25,18 @@ const SinglePost= ({
 
   if (onePost === ''){
     return (
-    <h3>`Welcome to Chappylist, select a post to view the details. Sign in to create posts and/or message authors about active posts`</h3>
+      <div>
+        <img src={require("../imgs/ChappyScript.png")} alt="Chappylist"/>
+    <h2>Welcome to Chappylist!</h2>
+    <h4> Select a post on the left to start browsing. <br></br> <br></br> Sign in to create posts and/or message authors about active posts</h4>
+    
+    </div>
     )
   }
-  
-  else if (onePost && TOKEN_STORAGE_KEY.length > 5) {
+
+
+
+  else if (onePost && TOKEN_STORAGE_KEY.length > 5 && onePost.author.username) {
     return (
       <div>
         <div id="single-post-card">
@@ -57,6 +65,25 @@ const SinglePost= ({
         }}>
             Send Message</button>
         </div>                              
+      </div>
+        )
+  } 
+
+  
+  else if (onePost && TOKEN_STORAGE_KEY.length > 5) {
+    return (
+      <div>
+        <div id="single-post-card">
+            <h3>{onePost.title}</h3>
+            <h4>Cost:</h4>
+            <span>{onePost.price}</span>
+            <h4>Location:</h4>
+            <span>{onePost.location}</span>
+            <h4>Author:</h4>
+            <span>{onePost.author.username}</span>
+            <h4>Description:</h4>
+            <span>{onePost.description}</span>
+        </div>                        
       </div>
         )
   } 

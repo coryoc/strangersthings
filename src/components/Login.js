@@ -38,20 +38,6 @@ const Login= ({
 
   { 
 
-    useEffect(() => {
-
-        getMe(meProfile, setMeProfile, token)
-        .then((freshProfile) => {
-            setMeProfile(freshProfile);
-        })
-        .then(() => {
-           console.log(meProfile);
-        })
-        .catch((e) => {
-          console.error('Error retrieving user profile info on initial page load.');
-          console.error(e);
-        });    }, [TOKEN_STORAGE_KEY]); 
-
     return (
         <main>
            <section id="login-card">
@@ -78,13 +64,6 @@ const Login= ({
 
             <button id="button-login" onClick={() => {
                 logIn(username, password, token, setToken)
-                    .then((newToken) => {
-                        setToken(newToken);
-                        }
-                    )
-
-
-                    
                 
             }
         }>Login</button>
@@ -92,10 +71,7 @@ const Login= ({
                 <p>New User?</p>
 
             <button id="button-register" onClick={() => signUp(username, password, token, setToken)
-            .then((newToken) => {
-                setToken(newToken);
-                }
-            )}>Create new account</button>
+            }>Create new account</button>
 
             </div>
         </section>

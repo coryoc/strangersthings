@@ -1,4 +1,4 @@
-export const logIn = async (username, password, token) => {
+export const logIn = async (username, password, token, setToken, getMe) => {
 
     try {
             const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/users/login`, {
@@ -19,7 +19,7 @@ export const logIn = async (username, password, token) => {
                 {alert(results.error.message);
                     return results;}
                 let newToken = results.data.token;
- 
+                    setToken(newToken);
             return newToken;
 
         } catch (error) {

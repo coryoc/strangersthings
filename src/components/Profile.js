@@ -118,7 +118,7 @@ const Profile = ({
 
      <section>
      <div id="my-existing-posts">
-        My Posts
+        <h2 className="profile-cards-title">My Posts</h2>
                 {
                     meProfile.posts.map(
                         (post) => {
@@ -128,16 +128,16 @@ const Profile = ({
                                         {post.title}
                                     </h3>
                                     <div>
-                                        {post.location}
+                                        Location: {post.location}
                                     </div>
                                     <div>
-                                        {post.price}
+                                        Posted on: {post.createdAt.slice(0, 10)}
                                     </div>
                                     <div>
-                                        {post.createdAt}
+                                        Price: {post.price}
                                     </div>
-                                    <p>Active? {post.active.toString()}</p>
-
+                                    <p>Still Active? {post.active.toString()}</p>
+                                    <div>
                                     <button onClick={(e) => {
                                         setOnePost(post);
                                         console.log(post);
@@ -153,7 +153,7 @@ const Profile = ({
                                         setPostId(post._id);
                                         deletePost(post);
                                         }}>Delete</button>
-                                    
+                                    </div>
                                 </div>
                             )
                         }

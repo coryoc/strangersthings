@@ -1,32 +1,88 @@
+/* color palette
+#ebebec
+
+#2C2C30
+
+
+#C2C1D6
+
+#DEE1F7
+
+
+
+#5d4de4
+
+#9c94e7
+
+#aca6ea
+
+#bcbcec */
+
+
 #header {
   display: flex;
+  flex-wrap: row wrap;
+  justify-content: space-between;
   box-sizing: border-box;
   height: 10vh;
   width: 100vw;
 
-  background-color: rgba(191, 61, 61, 0.791);
+  background-color: #ebebec;
+  border-bottom: 3px solid #5d4de4;
 
 }  
 
 button {
-    background-color: darkolivegreen;
-    color: bisque;
+    background-color:#5d4de4;
+    color: #ebebec;
     border:none; 
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius:10px; 
     padding: 5px;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: lightgreen;
-    color: black;
+    background-color:  #9c94e7;
+    color: #ebebec;
     transition: 0.5s;
 }
 
+section {
+    background-color: #ebebec;
+}
 
-h1 {
-    color: blue;
+select {
+    margin-bottom: 5vh;
+}
+
+#header-img {
+    color: #5d4de4;
     display: inline-block;
+    font-size: 3em;
+    font-weight: bold;
+    width: 40vw;
+    height: 9vh;
+}
+
+.header-links {
+    display: flex;
+    flex-wrap: row nowrap;
+    background-color: #ebebec;
+    color: 1px solid #5d4de4;
+    font-weight: bolder;
+    margin: 5px 2px 5px 2px;
+    
+    
+    align-items: center;
+
+}
+
+#header-links-card {
+    display: flex;
+    flex-wrap: row nowrap;
+    justify-content: space-evenly;
+    width: 20vw;
 }
 
 main {
@@ -47,8 +103,9 @@ main {
     height: 89vh;
     width: 20vw;
     overflow-y: scroll;
-    background-color: aqua;
+    background-color: #DEE1F7;
 }
+
 
 #posts-detailed-view {
     display: flex;
@@ -56,31 +113,37 @@ main {
     justify-content: space-evenly;
     order: 2;
     box-sizing: border-box;
-    border: 1px solid black;
+    border: 1px solid #2C2C30;
 
     flex-wrap: wrap;
     height: 89vh;
     width: 80vw;
-    background-color: teal;
+    background-color:  #bcbcec;
 }
+
+
 
 
 #single-post-card {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: flex-start;
-    border: 1px solid black;
-    background-color: beige;
-    height: 50vh;
+    border: 2px solid #2C2C30;
+    background-color: #DEE1F7;
+    height: 55vh;
     width: 60vw;
     padding-left: 5vw;
     margin-left: 5vw;
 }
 
+
+
+
+
 .create-reply-msg {
     display: flex;
-    border: 1px solid black;
-    background-color: goldenrod;
+    border: 1px solid #2C2C30;
+    background-color: #aca6ea;
     height: 5vh;
     width: 60vw;
     padding-left: 5vw;
@@ -90,8 +153,8 @@ main {
 #label-reply {
     padding: 5px;
     margin: 5px 0px 5px 0px;
-    background-color: black;
-    color: antiquewhite;
+    background-color: #2C2C30;
+    color: #ebebec;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     font-weight: bold;
 }
@@ -104,7 +167,7 @@ main {
 }
 
 .posts-filters-card {
-    border: 1px solid black;
+    border: 1px solid #2C2C30;
     width: 100%;
     padding-bottom: 1em;
 }
@@ -134,34 +197,38 @@ main {
 
     width: 30vw;
     height: 45vh;
-    background-color: teal;
+    background-color: #bcbcec;
     
 }
 
 #label-username {
     margin: 2vh 1vw 2vh 1vw;
     padding: .5vh .3vw .5vh .3vw;
-    background-color: black;
-    color: antiquewhite;
+    background-color: #2C2C30;
+    color: #ebebec;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     font-weight: bold;
 }
 
 #input-username {
     margin: 2vh 1vw 2vh 1vw;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 4px 0px 4px 0px;
 }
 
 #label-password {
     margin: 2vh 1vw 2vh 1vw;
     padding: .5vh .3vw .5vh .3vw;
-    background-color: black;
-    color: antiquewhite;
+    background-color: #2C2C30;
+    color: #ebebec;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     font-weight: bold;
 }
 
 #input-password {
     margin: 2vh 1vw 2vh 1vw;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 4px 0px 4px 0px;
 }
 
 #button-login {
@@ -171,6 +238,12 @@ main {
     color: antiquewhite;
     font-weight: bold;
     font-size: 1.5em;
+}
+
+#button-login:hover {
+    background-color: lightgreen;
+    color: black;
+    transition: 0.5s;
 }
 
 #button-register {
@@ -183,6 +256,12 @@ main {
     
 }
 
+#button-register:hover {
+    background-color: lightgreen;
+    color: black;
+    transition: 0.5s;
+}
+
 
 
 #create-new-post{
@@ -191,14 +270,17 @@ main {
     align-items: center;
     box-sizing: border-box;
     width: 20vw;
+    height: 90vh;
 }
 
 .create-new-post-title {
     margin: 2vh 1vw 2vh 1vw;
     padding: .5vh .3vw .5vh .3vw;
-    background-color: black;
-    color: antiquewhite;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    color: #5d4de4;
+    text-decoration: underline overline;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
 }
 
@@ -207,8 +289,8 @@ main {
     flex-flow: column;
     justify-content: start;
     box-sizing: border-box;
-    width: 40vw;
-    height: 85vh;
+    width: 30vw;
+    height: 90vh;
     overflow-x: scroll;
 }
 
@@ -218,10 +300,10 @@ main {
     align-items: center;
     border: 1px solid black;
     height: 15vh;
-    width: 38vw;
-    max-width: 38vw;
+    max-width: 30vw;
     padding-bottom: 1em;
-    overflow-x: scroll;
+    
+    background-color: #DEE1F7;
 
 }
 
@@ -231,10 +313,78 @@ main {
     justify-content: space-evenly;
     order: 2;
     box-sizing: border-box;
-
+    border: 1px solid #2C2C30;
     flex-wrap: wrap;
-    height: 89vh;
-    width: 40vw;
-    background-color: teal;
+    height: 90vh;
+    width: 50vw;
+    background-color: #bcbcec;
+    overflow-x: scroll;
 }
 
+.posts-cards-labels {
+    display: inline;
+    font-size: 1em;
+}
+
+#post-cards-button {
+    margin-top: 1vh;;
+}
+
+.msg-cards {
+    background-color: #bcbcec;
+    border: 1px solid #2C2C30;
+    max-width: 40vw;
+    margin-left: 10vh;
+    margin-bottom: 10px;
+}
+
+.msg-author {
+    background-color: #9c94e7;
+    border: 1px solid #2C2C30;
+    padding: 2px 0 2px 5px;
+    max-width: 40vw;
+    margin: 0 0 0 0;
+
+
+
+    
+}
+
+.msg-content {
+    padding: 2px 0 10px 5px;
+    background-color: #DEE1F7;
+    max-width: 40vw;
+    border-left: 1px solid #2C2C30;
+    border-right: 1px solid #2C2C30;
+    border-bottom: 1px solid #2C2C30;
+    margin: 0 0 0 0;
+
+}
+
+.profile-cards-title {
+    display: flex;
+   color: #5d4de4;
+   text-decoration: underline overline;
+   align-items: center;
+   justify-content: center;
+}
+
+/* color palette
+#ebebec
+
+#2C2C30
+
+
+#C2C1D6
+
+#DEE1F7
+
+
+
+#5d4de4
+
+#9c94e7
+
+#aca6ea
+
+#bcbcec */

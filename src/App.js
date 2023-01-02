@@ -1,5 +1,6 @@
 
 import getPosts from "./components/fetches/getPosts";
+import getMe from "./components/fetches/getMe";
 import PostCards from "./components/PostCards";
 import SinglePost from "./components/SinglePost";
 import Login from "./components/Login";
@@ -29,15 +30,31 @@ function App() {
 
   useEffect(() => {   TOKEN_STORAGE_KEY = token  }, [token]);
 
+  useEffect(() => {
+
+    getMe(meProfile, setMeProfile, token)
+    .then((freshProfile) => {
+        setMeProfile(freshProfile);
+    })
+    .then(() => {
+       console.log(meProfile);
+    })
+    .catch((e) => {
+      console.error('Error retrieving user profile info on initial page load.');
+      console.error(e);
+    });    }, [TOKEN_STORAGE_KEY]); 
+
   return (
   <div className="App">
 
     <header id="header">
-      <img href="./imgs/ChappyScript.png" alt="Chappylist" />
+    <img id ="header-img" src= {require("./imgs/ChappyScript.png")} alt="Chappylist" />
+    <div id="header-links-card">
       <Link to="/" className="header-links">Home</Link>
       <Link to="/posts" className="header-links">Posts</Link>
       <Link to="/login" className="header-links">Login</Link>
       <Link to="/profile" className="header-links">Profile</Link>
+    </div>
     </header>
 
     <Routes>

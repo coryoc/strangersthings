@@ -15,7 +15,8 @@ export const signUp = async (username, password) => {
             const results = await response.json();
             
             if (results.error) 
-            {alert(results.error.message);}
+            {alert(results.error.message);
+            return results}
             
             alert(`Congrats on signing up to use Chappylist ${username} ! Please sign in to continue.`)
             return results;
