@@ -59,16 +59,18 @@ const Profile = ({
     return (
         <main>
         <section id="profile-card">
-         <h3>Time to Login</h3>
          <div id="profile-card-backsplash">
   
 
-             <div>
-              Welcome{meProfile.username}
-             </div>
+             <h1 id="profile-card-welcome">
+              Welcome {meProfile.username}
+             </h1>
   
              <div id="create-new-post">
-                create new post
+             <h4 className="profile-instructions">Creating a Post</h4>
+                <p className="profile-walkthrough"> Fill out all four sections below before selecting the Create New Post button</p>
+
+                
 
                 <label className="create-new-post-title">title</label>
                 <input
@@ -119,6 +121,8 @@ const Profile = ({
      <section>
      <div id="my-existing-posts">
         <h2 className="profile-cards-title">My Posts</h2>
+        <h4 className="profile-instructions">Editing a Post</h4>
+                <p className="profile-walkthrough"> Enter the changes into the 4 sections on the left side of the screen before selecting the edit button for the post you wish to edit.</p>
                 {
                     meProfile.posts.map(
                         (post) => {
@@ -143,9 +147,9 @@ const Profile = ({
                                         console.log(post);
                                         }}>View</button>
                                     <button onClick={(e) => {
-                                        setOnePost(post);
-                                        console.log(onePost);
-                                        editPost(title, description, price, location, onePost)
+                                   
+                                            editPost(title, description, price, location, post);
+                                        
                                     }}
                                     >Edit</button>
                                     <button

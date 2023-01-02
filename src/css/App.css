@@ -111,6 +111,7 @@ main {
     display: flex;
     flex-flow: column wrap;
     justify-content: space-evenly;
+    align-items: center;
     order: 2;
     box-sizing: border-box;
     border: 1px solid #2C2C30;
@@ -118,9 +119,20 @@ main {
     flex-wrap: wrap;
     height: 89vh;
     width: 80vw;
-    background-color:  #bcbcec;
+    background-image:url(../imgs/ChappyScriptPattern.jpg);
 }
 
+#single-post-default {
+    display: flex;
+    flex-wrap: column wrap;
+    background-color: #ebebec;
+    color: #2C2C30;
+    height: 20vh;
+    width: 42vw;
+    margin-top: 3vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+}
 
 
 
@@ -183,15 +195,15 @@ main {
     height: 90vh;
     width: 100vw;
     
-    background-image:url(../imgs/ChappyList.jpeg);
+    background-image:url(../imgs/ChappyScriptPattern.jpg);
 }
 
 #login-card-backsplash {
 
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     
 
 
@@ -307,6 +319,36 @@ main {
 
 }
 
+#profile-card-welcome {
+    display: flex;
+    color: #5d4de4;
+    color: #5d4de4;
+    text-decoration: underline ;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#profile-card {
+    height: 90vh;
+}
+
+
+.profile-walkthrough {
+    color: #2C2C30;
+    margin: 2vh 1vw 2vh 1vw;
+    padding: .5vh .3vw .5vh .3vw;
+}
+
+.profile-instructions {
+    margin: 2vh 1vw 2vh 1vw;
+    padding: .5vh .3vw .5vh .3vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
 #profile-posts-detailed-view {
     display: flex;
     flex-flow: column wrap;
@@ -317,7 +359,7 @@ main {
     flex-wrap: wrap;
     height: 90vh;
     width: 50vw;
-    background-color: #bcbcec;
+    background-image:url(../imgs/ChappyScriptPattern.jpg);
     overflow-x: scroll;
 }
 
@@ -367,24 +409,10 @@ main {
    text-decoration: underline overline;
    align-items: center;
    justify-content: center;
+
 }
 
-/* color palette
-#ebebec
+#button-msg-reply {
+    margin: 4px;
+}
 
-#2C2C30
-
-
-#C2C1D6
-
-#DEE1F7
-
-
-
-#5d4de4
-
-#9c94e7
-
-#aca6ea
-
-#bcbcec */

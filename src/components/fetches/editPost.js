@@ -1,9 +1,9 @@
 import { TOKEN_STORAGE_KEY } from "../../App";
 
-export const editPost = async (title, description, price, location, willDeliver, token, onePost) => {
+export const editPost = async (title, description, price, location, post) => {
 
     try {
-            const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/posts/${onePost._id}`, {
+            const response = await fetch(`https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-PT/posts/${post._id}`, {
                 method: "PATCH",
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export const editPost = async (title, description, price, location, willDeliver,
             return results;
 
         } catch (error) {
-        console.log("An error occurred when trying to create a new post.");
+        console.log("An error occurred when trying to edit an existing post.");
         console.error(error);
 
         throw error;

@@ -60,7 +60,7 @@ const Login= ({
                     onChange={recordChange(setPassword)}/>
                 </div>
 
-                <p>Existing User?</p>
+                <p>Existing User? Click button twice to login!</p>
 
             <button id="button-login" onClick={() => {
                 logIn(username, password, token, setToken)
